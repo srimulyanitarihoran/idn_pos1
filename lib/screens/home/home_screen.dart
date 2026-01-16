@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: 20),
             child: Text(
               'v1.0.0 - IDN Cafe POS',
               style: TextStyle(
