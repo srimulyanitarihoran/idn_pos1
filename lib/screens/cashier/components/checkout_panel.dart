@@ -5,7 +5,11 @@ class CheckoutPanel extends StatelessWidget {
   final int total;
   final VoidCallback onPressed;
 
-  const CheckoutPanel({super.key, required this.total, required this.onPressed});
+  const CheckoutPanel({
+    super.key,
+    required this.total,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,34 +17,36 @@ class CheckoutPanel extends StatelessWidget {
       padding: EdgeInsets.all(25),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(30)), // buat atas aja
-        boxShadow: [BoxShadow(
-          color: Colors.black12,
-          blurRadius: 20,
-          offset: Offset(0, -5)
-        )]
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(30),
+        ), // buat atas aja
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 20,
+            offset: Offset(0, -5),
+          ),
+        ],
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween, // buat ngasi jarak antara wudget 1 sama widget 1 nya lagi
+            mainAxisAlignment: MainAxisAlignment
+                .spaceBetween, // buat ngasi jarak antara wudget 1 sama widget 1 nya lagi
             children: [
               Text(
                 'Total Tagihan',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
               Text(
                 formatRupiah(total),
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF2E3192)
+                  color: Color(0xFF2E3192),
                 ),
-              )
+              ),
             ],
           ),
           SizedBox(height: 20),
@@ -51,14 +57,16 @@ class CheckoutPanel extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.all(0),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)
-                )
+                  borderRadius: BorderRadius.circular(15),
+                ),
               ),
               onPressed: onPressed,
               child: Ink(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [Color(0xFF2E3192), Color(0xFF1BFFFF)]),
-                  borderRadius: BorderRadius.circular(15)
+                  gradient: LinearGradient(
+                    colors: [Color(0xFF2E3192), Color(0xFF1BFFFF)],
+                  ),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: Container(
                   alignment: Alignment.center,
@@ -71,15 +79,15 @@ class CheckoutPanel extends StatelessWidget {
                         'Proses & Print',
                         style: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.bold,
                         ),
-                        )
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
