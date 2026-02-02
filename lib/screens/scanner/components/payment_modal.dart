@@ -6,14 +6,7 @@ class PaymentModal extends StatelessWidget {
   final int total;
   final VoidCallback onPay;
   final VoidCallback onCancel;
-
-  const PaymentModal({
-    super.key,
-    required this.id,
-    required this.total,
-    required this.onPay,
-    required this.onCancel,
-  });
+  const PaymentModal({super.key, required this.id, required this.total, required this.onPay, required this.onCancel});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +19,7 @@ class PaymentModal extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // handle bar
+          //handle bar 
           Container(
             width: 40,
             height: 4,
@@ -34,23 +27,27 @@ class PaymentModal extends StatelessWidget {
               color: Colors.grey[300],
               borderRadius: BorderRadius.circular(10),
             ),
+            
           ),
           SizedBox(height: 20),
-
-          // icon checklist
+          //icon checklist
           Container(
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: Colors.green.shade50,
               shape: BoxShape.circle,
             ),
-            child: Icon(Icons.verified_rounded, size: 50, color: Colors.green),
+            child: Icon(
+              Icons.verified_rounded,
+              color: Colors.green,
+              size: 50,
+            ),
           ),
           SizedBox(height: 15),
 
-          // detail tagihan
+          //dtail tagihan
           Text(
-            'Tagihan Ditemukan',
+            "Tagihan ditemukan!",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -59,20 +56,32 @@ class PaymentModal extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text(
-            'ID: $id', // pake string interpolasion, karna ngambil dari variable
-            style: TextStyle(color: Colors.grey),
+            "ID: $id",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
           ),
-          Divider(height: 30),
-
-          // detail harga
+          Divider(
+            height: 30,
+          ),
+          //detail harga
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Total Tagihan', style: TextStyle(fontSize: 16)),
               Text(
-                'Status',
-                style: TextStyle(fontSize: 16, color: Colors.grey),
+                "total tagihan",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
               ),
+              Text(
+                "Status",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                ),
+              )
             ],
           ),
           SizedBox(height: 5),
@@ -88,67 +97,69 @@ class PaymentModal extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 1, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.orange.shade100,
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Text(
-                  'UNPAID',
+                  "UNPAID",
                   style: TextStyle(
                     color: Colors.deepOrange,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   ),
                 ),
-              ),
+              )
             ],
           ),
           SizedBox(height: 30),
-
-          // button bayar sekarang
+          // button pay and cancle
           SizedBox(
             width: double.infinity,
             height: 55,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-              onPressed: onPay,
-              child: Ink(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF11998e), Color(0xFF38ef7d)],
-                  ),
-                  borderRadius: BorderRadius.circular(15)
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'BAYAR SEKARANG!',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
-                    ),
-                  ),
-                ),
-              ),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
             ),
+          ),
+          onPressed: onPay,
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF11998e), Color(0xFF38ef7d)
+                ]
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                "BAYAR SEKARANG",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+            ),
+            ),
+          )
+          )
           ),
           SizedBox(height: 10),
           TextButton(
             onPressed: onCancel,
             child: Text(
-              'Batalkan',
+              "Batalkan",
               style: TextStyle(
-                color: Colors.grey
+                color: Colors.grey,
               ),
             ),
           )
+
         ],
       ),
     );
